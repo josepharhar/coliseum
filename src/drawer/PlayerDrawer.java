@@ -9,6 +9,9 @@ public class PlayerDrawer extends Drawer {
 
     private double size;
 
+    // rotation in radians
+    private double rotation;
+
     public void setPosition(Position position) {
         this.position = position;
     }
@@ -17,46 +20,58 @@ public class PlayerDrawer extends Drawer {
         this.size = size;
     }
 
+    public void setRotation(double rotation) {
+        this.rotation = rotation;
+    }
+
     public void draw() {
 
-        glBegin(GL_QUADS);
+        glPushMatrix();
         {
-            glColor3d(0.0f, 1.0f, 0.0f);
-            glVertex3d(position.x + size, position.y + size, -1.0f);
-            glVertex3d(position.x - size, position.y + size, -1.0f);
-            glVertex3d(position.x - size, position.y + size, 1.0f);
-            glVertex3d(position.x + size, position.y + size, 1.0f);
-    
-            glColor3d(1.0f, 0.5f, 0.0f);
-            glVertex3d(position.x + size, position.y - size, 1.0f);
-            glVertex3d(position.x - size, position.y - size, 1.0f);
-            glVertex3d(position.x - size, position.y - size, -1.0f);
-            glVertex3d(position.x + size, position.y - size, -1.0f);
-    
-            glColor3d(1.0f, 0.0f, 0.0f);
-            glVertex3d(position.x + size, position.y + size, 1.0f);
-            glVertex3d(position.x - size, position.y + size, 1.0f);
-            glVertex3d(position.x - size, position.y - size, 1.0f);
-            glVertex3d(position.x + size, position.y - size, 1.0f);
-    
-            glColor3d(1.0f, 1.0f, 0.0f);
-            glVertex3d(position.x + size, position.y - size, -1.0f);
-            glVertex3d(position.x - size, position.y - size, -1.0f);
-            glVertex3d(position.x - size, position.y + size, -1.0f);
-            glVertex3d(position.x + size, position.y + size, -1.0f);
-    
-            glColor3d(0.0f, 0.0f, 1.0f);
-            glVertex3d(position.x - size, position.y + size, 1.0f);
-            glVertex3d(position.x - size, position.y + size, -1.0f);
-            glVertex3d(position.x - size, position.y - size, -1.0f);
-            glVertex3d(position.x - size, position.y - size, 1.0f);
-    
-            glColor3d(1.0f, 0.0f, 1.0f);
-            glVertex3d(position.x + size, position.y + size, -1.0f);
-            glVertex3d(position.x + size, position.y + size, 1.0f);
-            glVertex3d(position.x + size, position.y - size, 1.0f);
-            glVertex3d(position.x + size, position.y - size, -1.0f);
+            glTranslated(position.x, position.y, 0d);
+            glRotated(rotation, 1d, 0d, 0d);
+
+            glBegin(GL_QUADS);
+            {
+                glColor3d(0.0f, 1.0f, 0.0f);
+                glVertex3d(size, size, -1.0f);
+                glVertex3d(-size, size, -1.0f);
+                glVertex3d(-size, size, 1.0f);
+                glVertex3d(size, size, 1.0f);
+
+                glColor3d(1.0f, 0.5f, 0.0f);
+                glVertex3d(size, -size, 1.0f);
+                glVertex3d(-size, -size, 1.0f);
+                glVertex3d(-size, -size, -1.0f);
+                glVertex3d(size, -size, -1.0f);
+
+                glColor3d(1.0f, 0.0f, 0.0f);
+                glVertex3d(size, size, 1.0f);
+                glVertex3d(-size, size, 1.0f);
+                glVertex3d(-size, -size, 1.0f);
+                glVertex3d(size, -size, 1.0f);
+
+                glColor3d(1.0f, 1.0f, 0.0f);
+                glVertex3d(size, -size, -1.0f);
+                glVertex3d(-size, -size, -1.0f);
+                glVertex3d(-size, size, -1.0f);
+                glVertex3d(size, size, -1.0f);
+
+                glColor3d(0.0f, 0.0f, 1.0f);
+                glVertex3d(-size, size, 1.0f);
+                glVertex3d(-size, size, -1.0f);
+                glVertex3d(-size, -size, -1.0f);
+                glVertex3d(-size, -size, 1.0f);
+
+                glColor3d(1.0f, 0.0f, 1.0f);
+                glVertex3d(size, size, -1.0f);
+                glVertex3d(size, size, 1.0f);
+                glVertex3d(size, -size, 1.0f);
+                glVertex3d(size, -size, -1.0f);
+            }
+            glEnd();
+
         }
-        glEnd();
+        glPopMatrix();
     }
 }
