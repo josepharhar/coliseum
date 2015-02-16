@@ -1,6 +1,6 @@
 package gameobjects;
 
-import gui.PlayerDrawer;
+import drawer.PlayerDrawer;
 
 public class Player {
     

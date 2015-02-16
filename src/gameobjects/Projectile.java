@@ -1,6 +1,6 @@
 package gameobjects;
 
-import gui.ProjectileDrawer;
+import drawer.ProjectileDrawer;
 
 public class Projectile {
 

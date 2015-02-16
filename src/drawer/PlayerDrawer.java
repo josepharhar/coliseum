@@ -1,4 +1,4 @@
-package gui;
+package drawer;
 
 public class PlayerDrawer extends Drawer {
     

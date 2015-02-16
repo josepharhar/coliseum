@@ -1,4 +1,4 @@
-package gui;
+package drawer;
 
 public abstract class Drawer {
     
