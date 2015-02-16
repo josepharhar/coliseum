@@ -9,6 +9,11 @@ public class Position {
         this.y = y;
     }
     
+    public Position(Position position) {
+        this.x = position.x;
+        this.y = position.y;
+    }
+    
     public static double distance(Position a, Position b) {
         return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
     }
