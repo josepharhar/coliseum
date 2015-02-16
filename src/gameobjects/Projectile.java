@@ -12,7 +12,7 @@ public class Projectile extends GameObject {
     private ProjectileDrawer drawer;
     
     public void updateDrawer() {
-        drawer.setPosition(position);
+        drawer.setPosition(new Position(position));
         drawer.setSize(size);
     }
     

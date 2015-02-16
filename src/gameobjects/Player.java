@@ -13,16 +13,19 @@ public class Player extends GameObject {
     
     private PlayerDrawer drawer;
     
-    public Player() {
-        
+    public Player(Position position, double size) {
+        this.position = position;
+        this.size = size;
+        rotation = Math.random() * Math.PI * 2;
+        drawer = new PlayerDrawer();
     }
     
     public void updateDrawer() {
-        drawer.setPosition(position);
+        drawer.setPosition(new Position(position));
         drawer.setSize(size);
         
         //rotation is just a graphical effect that causes the cube to rotate
-        rotation += 0.01d;
+        rotation += 1d;
         drawer.setRotation(rotation);
     }
     
